@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var pool = require('../config/dbConfig');
 
 // 전체 관리비 페이지 렌더링
 router.get('/totalMgt', function(req, res, next) {
@@ -15,5 +16,7 @@ router.get('/budget', function(req, res, next) {
 router.get('/payment', function(req, res, next) {
   res.render('index', {page: './sub/mgt/Payment', store: req.session});
 });
+
+
 
 module.exports = router;

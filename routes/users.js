@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var pool = require('../config/dbConfig');
 
 // 세대 관리 보기 페이지
 router.get('/userInfo', function (req, res, next) {
@@ -21,13 +22,17 @@ router.get('/visit', function (req, res, next) {
   res.render('index', { page: './sub/mypage/Visit', store: req.session });
 });
 
+// 사용자 시설 예약 페이지 렌더링
+router.get('/myReserve', function (req, res, next) {
+  res.render('index', { page: './sub/mypage/MyReserve', store: req.session });
+});
+
 // 나의 관리비 보기 페이지
 router.get('/myMgt', function (req, res, next) {
   res.render('index', { page: './sub/mypage/MyMgt', store: req.session });
 });
-router.get('/', function (req, res, next) {
-  res.render('index', { page: './sub/main', store: req.session });
-});
+
+
 router.get('/', function (req, res, next) {
   res.render('index', { page: './sub/main', store: req.session });
 });

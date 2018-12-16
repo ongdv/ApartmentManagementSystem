@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var pool = require('../config/dbConfig');
 
 // 공지사항 페이지
 router.get('/notice', function(req, res, next) {
